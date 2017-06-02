@@ -35,7 +35,7 @@
                     const newUser = new User();
                     
                     newUser.google.id = profile.id;
-                    newUser.google.token = token;
+                    newUser.google.token = accessToken;
                     newUser.google.name = profile.name;
                     newUser.google.displayName = profile.displayName
 

@@ -34,7 +34,7 @@ export default class HeaderNav extends React.Component {
 		return (
 			<div id="header-nav">
                 <a href='/home'>Home</a>
-                <h1>Vote</h1>
+                <h1>Availability</h1>
                 {this.getLoginElem()}
             </div>
 		);
