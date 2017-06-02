@@ -14,7 +14,7 @@
                         res.status(503).end();
                     } else if (user) {
                         res.json({
-                            name: user.google.name.givenName + ' ' + user.google.name.familyName,
+                            name: user.google.fullName,
                             displayName: user.google.displayName, 
                             id: user._id
                         });

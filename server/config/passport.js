@@ -36,7 +36,7 @@
                     
                     newUser.google.id = profile.id;
                     newUser.google.token = accessToken;
-                    newUser.google.name = profile.name;
+                    newUser.google.fullName = profile.name.givenName + ' ' + profile.name.familyName,
                     newUser.google.displayName = profile.displayName
 
                     newUser.save((err) => {
