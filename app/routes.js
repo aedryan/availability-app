@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Home from 'components/home';
+import Week from 'components/week';
 import NotFound from 'components/404';
 
 const Routes = (props) => (
@@ -17,7 +18,10 @@ const Routes = (props) => (
                     <Redirect to='/home'/>
                 )}/>
                 <Route exact path='/home' render={() => (
-                    <Home loggedIn={props.loggedIn}/>
+                    <Home loggedIn={props.loggedIn} />
+                )} />
+                <Route path='/week' render={() => (
+                    <Week loggedIn={props.loggedIn} userID={props.userID} />
                 )} />
                 <Route path='*' component={NotFound} />
             </Switch>

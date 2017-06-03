@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     $.get('/db/user', (data) => {
       const loggedIn = typeof data === "object";
-      const username = data ? data.displayName : '';
+      const username = data ? data.google.displayName : '';
       const userID = data ? data.id : '';
 
       ReactDOM.render(

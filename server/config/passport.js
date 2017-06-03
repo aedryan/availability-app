@@ -23,8 +23,7 @@
         clientSecret: process.env.CLIENT_SECRET,
         callbackURL: 'https://availability-aedryan.herokuapp.com/auth/google/callback',
         passReqToCallback: true
-    },
-    function(request, accessToken, refreshToken, profile, done){
+    }, function(request, accessToken, refreshToken, profile, done){
         process.nextTick(() => {
             User.findOne({ 'google.id' : profile.id }, (err, user) => {
                 if (err) {
@@ -32,18 +31,19 @@
                 } else if (user) {
                     done(null, user);
                 } else {
-                    const newUser = new User();
+                    user = new User();
                     
-                    newUser.google.id = profile.id;
-                    newUser.google.token = accessToken;
-                    newUser.google.fullName = profile.name.givenName + ' ' + profile.name.familyName,
-                    newUser.google.displayName = profile.displayName
-
-                    newUser.save((err) => {
+                    user.google.id = profile.id;
+                    user.google.token = accessToken;
+                    user.google.fullName = profile.name.givenName + ' ' + profile.name.familyName,
+                    user.google.displayName = profile.displayName
+                    user.google.photo = profile.photos[0].value
+                    
+                    user.save((err) => {
                         if (err) {
                             done(err);
                         } else {
-                            done(null. newUser);
+                            done(null, user);
                         }
                     });
                 }

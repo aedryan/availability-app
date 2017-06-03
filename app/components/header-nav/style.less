@@ -7,11 +7,15 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: rgb(240,240,245);
+    background: linear-gradient(to bottom, rgb(80,80,80), rgb(95,95,95));
     padding: @header-height / 3;
     line-height: @header-height / 3;
     border-bottom: 1px solid rgb(200,200,250);
     min-width: @min-width;
+    color: rgb(180,210,230);
+    & a {
+        color: inherit;
+    }
     & > *:last-child {
         float: right;
         z-index: 1;
@@ -21,18 +25,8 @@
             right: 0;
             text-align: center;
             min-width: auto;
+            color: black;
         }
-    }
-    & h1 {
-        line-height: inherit;
-        position: absolute;
-        width: 0;
-        text-align: center;
-        top: @header-height / 3;
-        font-size: 14px;
-        margin: auto;
-        left: 0;
-        right: 0;
     }
 }
 

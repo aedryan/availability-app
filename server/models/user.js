@@ -6,11 +6,12 @@
         google: {
             id: String,
             token: String,
-            name: String,
-            displayName: String
+            fullName: String,
+            displayName: String,
+            photo: String
         }
     });
-
-    module.exports = mongoose.model('User', userSchema);
+    
+    module.exports = mongoose.model('User', userSchema, 'users');
 
 })();

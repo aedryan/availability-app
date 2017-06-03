@@ -1,0 +1,37 @@
+.day {
+    border: 1px solid rgb(200,200,200);
+    &.clickable {
+        cursor: pointer;
+    }
+    &:not(:last-child) {
+        border-bottom: none;
+    }
+    & > * {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px;
+        min-height: 60px;
+    }
+    & .day-title {
+        padding: 20px;
+        width: 120px;
+        font-weight: bold;
+    }
+    & .players {
+        width: ~"calc(100% - 120px)";
+        border-left: 1px solid rgb(200,200,200);
+        & > img {
+            max-height: 100%;
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+#week h3 {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+}
+
+

@@ -1,0 +1,37 @@
+.weeks {
+    margin-left: -10px;
+    padding: 0;
+    & a {
+        display: inline-block;
+        margin-left: 10px;
+        width: ~"calc(12.5% - 10px)";
+        float: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 20px;
+        &:not(.fresh) {
+            color: rgb(150,150,150);
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .weeks a {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .weeks a {
+        width: ~"calc(25% - 10px)";
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .weeks a {
+        width: ~"calc(50% - 10px)";
+        font-size: 14px;
+    }
+}

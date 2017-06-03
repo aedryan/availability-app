@@ -8,15 +8,7 @@
         app.get(/^(?!\/auth|db\/)/, (req, res) => {
             const indexPath = path.resolve(__dirname, '../..', 'public', 'index.html');
 
-            if (/\/home/.test(req.path)) {
-                res.sendFile(indexPath);
-            } else {
-                if (req.isAuthenticated()) {
-                    res.sendFile(indexPath);
-                } else {
-                    res.status(401).redirect('/');
-                }
-            }
+            res.sendFile(indexPath);
         });
 
     };

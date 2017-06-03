@@ -9,8 +9,8 @@
 
         // handle the callback after facebook has authenticated the user
         app.get('/auth/google/callback', passport.authenticate('google', {
-            successRedirect : '/',
-            failureRedirect : '/'
+            successRedirect : '/home',
+            failureRedirect : '/home'
         }));
 
         app.get('/auth/logout', (req, res) => {
