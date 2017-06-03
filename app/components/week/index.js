@@ -14,7 +14,6 @@ export default class Week extends React.Component {
 			weekData: null,
 		}
 		this.getWeekData();
-
 		socket.on('receive player', (data) => {
 			this.setState(() => {
 				return {

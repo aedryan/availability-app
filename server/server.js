@@ -48,7 +48,7 @@
 	const socket = io(server);
 	socket.on('connection', (socket) => {
 		socket.on('player event', (data) => {
-			socket.broadcast.to(data).emit('receive player', data);
+			socket.broadcast.emit('receive player', data);
 		});
 	});
 
