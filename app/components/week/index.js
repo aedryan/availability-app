@@ -1,5 +1,8 @@
 import React from 'react';
 import Util from 'util';
+import IO from 'socket.io-client';
+
+const socket = IO();
 
 export default class Week extends React.Component {
 	constructor(props) {
@@ -8,9 +11,17 @@ export default class Week extends React.Component {
 		this.state = {
 			year: Number(param[0]),
 			week: Number(param[1]),
-			weekData: null
+			weekData: null,
 		}
 		this.getWeekData();
+
+		socket.on('receive player', (data) => {
+			this.setState(() => {
+				return {
+					weekData: data
+				}
+			})
+		});
 	}
 
 	getWeekData() {
@@ -27,6 +38,7 @@ export default class Week extends React.Component {
 		if (this.props.loggedIn) {
 			name = name.toLowerCase();
 			$.post('/db/update/' + this.state.week + '/player', { day: name }, (data) => {
+				socket.emit('player event', data);
 				this.setState(() => {
 					return {
 						weekData: data

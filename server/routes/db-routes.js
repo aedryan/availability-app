@@ -61,6 +61,9 @@
             });
         });
 
+        /**
+         * Toggles a players availability for a day of a week.
+         */
         app.post('/db/update/:week/player', (req, res) => {
             if (req.isAuthenticated()) {
                 Week.findOne({ "number": req.params.week }, (err, oldWeek) => {

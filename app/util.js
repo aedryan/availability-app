@@ -6,7 +6,8 @@ const Util = {
         const start = new Date(thisYear, 0, 0);
         const diff = now - start;
         const oneDay = 1000 * 60 * 60 * 24;
-        const week = Math.floor((diff / oneDay) / 7) + 1;
+        const day = Math.floor((diff / oneDay));
+        const week = Math.ceil(day / 7);
         return week;
     }
 

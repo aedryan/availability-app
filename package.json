@@ -16,7 +16,6 @@
     "bootstrap": "^3.3.7",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
-    "d3": "^4.8.0",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "jquery": "^3.2.1",
@@ -24,13 +23,12 @@
     "mongoose": "^4.9.5",
     "passport": "^0.3.2",
     "passport-google-oauth2": "^0.1.6",
-    "rc-tooltip": "^3.4.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-modal": "^1.7.7",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "react-tooltip": "^3.3.0"
+    "socket.io": "^2.0.2"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",

@@ -7,6 +7,7 @@
 	const bodyParser = require('body-parser');
 	const session = require('express-session');
 	const mongoose = require('mongoose');
+	const io = require('socket.io');
 
 	// My modules
 	const passport = require('./config/passport');
@@ -40,8 +41,15 @@
 	pageRoutes(app);
 
   	// Start server
-  	app.listen(app.get('port'), () => {
+  	const server = app.listen(app.get('port'), () => {
 		console.log("App is running", app.get('port'));
   	});
+
+	const socket = io(server);
+	socket.on('connection', (socket) => {
+		socket.on('player event', (data) => {
+			socket.broadcast.to(data).emit('receive player', data);
+		});
+	});
 
 })();
