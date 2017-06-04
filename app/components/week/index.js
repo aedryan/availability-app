@@ -12,6 +12,7 @@ export default class Week extends React.Component {
 			year: Number(param[0]),
 			week: Number(param[1]),
 			weekData: null,
+			danger: false
 		}
 		this.getWeekData();
 		socket.on('receive player', (data) => {
@@ -19,7 +20,7 @@ export default class Week extends React.Component {
 				return {
 					weekData: data
 				}
-			})
+			});
 		});
 	}
 
@@ -33,7 +34,8 @@ export default class Week extends React.Component {
 		});
 	}
 
-	clickDay(name) {
+	clickDay(e, name) {
+		
 		if (this.props.loggedIn) {
 			name = name.toLowerCase();
 			$.post('/db/update/' + this.state.week + '/player', { day: name }, (data) => {
@@ -43,6 +45,12 @@ export default class Week extends React.Component {
 						weekData: data
 					};
 				});
+			});
+		} else {
+			this.setState(() => {
+				return {
+					danger: true
+				};
 			});
 		}
 	}
@@ -54,13 +62,12 @@ export default class Week extends React.Component {
 			let className = "day clearfix";
 			if (this.state.weekData) {
 				players = this.state.weekData[name.toLowerCase()].map((player) => {
-					return (
-						<img title={player.name} src={player.photo} key={player.id} />
-					);
+					return <Player player={player} key={player.id} />;
 				});
 			}
+			className += this.props.loggedIn ? " clickable" : "";
 			return (
-				<div className={this.props.loggedIn ? (className + " clickable") : className} key={name} onClick={() => this.clickDay(name)}>
+				<div className={className} key={name} onClick={(e) => this.clickDay(e, name)}>
 					<div className="day-title">{name}</div>
 					<div className="players">{players}</div>
 				</div>
@@ -95,15 +102,31 @@ export default class Week extends React.Component {
 
 	render() {
 		const title = this.getWeekName();
+		const h3Class = this.state.danger ? "alert-danger" : "alert-warning";
 		
 		return (
 			<div id="week">
                 <h2>{title}</h2>
-				<h3>{this.props.loggedIn ? 'Select the days that work for you!' : 'Log in to mark your availability'}</h3>
+				<h3 className={this.props.loggedIn ? "" : ("alert " + h3Class)}>{this.props.loggedIn ? 'Select the days that work for you! Select again to toggle "maybe" or remove yourself.' : 'Log in to mark your availability'}</h3>
 				{this.days()}
-				<h6>{this.props.loggedIn ? 'Select a day again to remove your availability.' : ''}</h6>
-				<h6>Hover over an image their name.</h6>
+				<h6>Hover over an image to see their name.</h6>
 			</div>
 		);
+	}
+}
+
+class Player extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		const maybe = this.props.player.maybe ? " maybe" : "";
+
+		return (
+			<div className={"player-container" + maybe} key={this.props.player.id} >
+				<img title={this.props.player.name} src={this.props.player.photo} />
+			</div>
+		)
 	}
 }

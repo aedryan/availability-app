@@ -8,7 +8,7 @@ module.exports = {
     },
     stylesheets: {
       joinTo: {
-        'app.css': /app\/.+\.less|bootstrap.css/
+        'app.css': /app\/.+\.less|bootstrap.css|font-awesome.css/
       }
     },
     templates: {
@@ -27,10 +27,11 @@ module.exports = {
     globals: {
       jQuery: 'jquery',
       $: 'jquery',
-      bootstrap: 'bootstrap',
+      bootstrap: 'bootstrap'
     },
     styles: {
       bootstrap: ['dist/css/bootstrap.css'],
+      "font-awesome": ['css/font-awesome.css'],
     },
   },
   plugins: {

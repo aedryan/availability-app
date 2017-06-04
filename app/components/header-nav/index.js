@@ -1,4 +1,5 @@
 import React from 'react';
+import Util from 'util';
 
 export default class HeaderNav extends React.Component {
     constructor(props) {
@@ -10,6 +11,11 @@ export default class HeaderNav extends React.Component {
 
     getLoginElem() {
         if (this.props.loggedIn) {
+            const week = Util.weekOfYear();
+            const thisYear = new Date().getFullYear();
+            const thisWeek = thisYear + "-" + week;
+            const nextWeek = thisYear + "-" + Number(week + 1);
+
             return (
                 <div className="dropdown">
                     <a className="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -18,6 +24,9 @@ export default class HeaderNav extends React.Component {
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li><a href="/home">Home</a></li>
+                        <li role="separator" className="divider"></li>
+                        <li><a href={"week/" + thisWeek}>This Week</a></li>
+                        <li><a href={"week/" + nextWeek}>Next Week</a></li>
                         <li role="separator" className="divider"></li>
                         <li><a href="/auth/logout">Log Out</a></li>
                     </ul>

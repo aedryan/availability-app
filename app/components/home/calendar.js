@@ -64,8 +64,25 @@ export default class Calendar extends React.Component {
     }
 
 	render() {
+        const week = Util.weekOfYear();
+        const thisYear = new Date().getFullYear();
+        const thisWeek = thisYear + "-" + week;
+        const nextWeek = thisYear + "-" + Number(week + 1);
+
 		return (
-			<div className="calendar">{this.year()}</div>
+			<div className="calendar">
+                <div className="well well-lg">
+                    <h2>When Can You Game?</h2>
+                    <p>Select a week to let us know when you're available</p>
+                    <div className="header-weeks">
+                        <a className="btn btn-primary" href={"week/" + thisWeek}>This Week</a>
+                        <a className="btn btn-primary" href={"week/" + nextWeek}>Next Week</a>
+                    </div>
+                </div>
+
+                
+                {this.year()}
+            </div>
 		);
 	}
 }

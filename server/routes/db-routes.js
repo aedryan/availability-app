@@ -71,20 +71,25 @@
                         console.error('Error finding week.', req.params.week, err)
                         res.status(503).end();
                     } else {
+                        let index;
                         let newUser = {
                             name: req.user.google.displayName,
                             photo: req.user.google.photo,
-                            id: req.user.google.id
+                            id: req.user.google.id,
+                            maybe: false
                         };
-                        let index;
-
-                        if (oldWeek[req.body.day].find((user, i) => {
+                        let existingUser = oldWeek[req.body.day].find((user, i) => {
                             if (newUser.id === user.id) {
                                 index = i;
                                 return true;
                             }
-                        })) {
+                        });
+
+                        if (existingUser && existingUser.maybe) {
                             oldWeek[req.body.day].splice(index, 1);
+                        } else if (existingUser && !existingUser.maybe) {
+                            newUser.maybe = true;
+                            oldWeek[req.body.day].splice(index, 1, newUser)
                         } else {
                             oldWeek[req.body.day].push(newUser);
                         }
