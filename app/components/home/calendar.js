@@ -6,6 +6,15 @@ const minDate = new Date(2017, 0, 1);
 export default class Calendar extends React.Component {
 	constructor(props) {
 		super(props);
+        const thisYear = minDate.getFullYear();
+        const diff = thisYear - new Date().getFullYear();
+        let state = {};
+
+        for (let i = 0; i <= diff; i++) {
+            state[thisYear + i] = false;
+        }
+        
+        this.state = state;
 	}
 
     weeks(year) {
@@ -15,7 +24,7 @@ export default class Calendar extends React.Component {
         let className = "";
         let name = "";
 
-        for (var i = 1; i <= 52; i++) {
+        for (let i = 1; i <= 52; i++) {
             className = "";
 
             if (i === week) {
@@ -33,7 +42,9 @@ export default class Calendar extends React.Component {
                 className += className.length > 0 ? (" " + freshClass) : freshClass;
             }
             
-            weeks.push(<a href={"/week/" + year + "-" + i} key={"Week-" + i} className={className}>{name}</a>)
+            if (this.state[year] || className.indexOf('fresh') > -1) {
+                weeks.push(<a href={"/week/" + year + "-" + i} key={"Week-" + i} className={className}>{name}</a>)
+            }
         }
 
         return (
@@ -43,24 +54,35 @@ export default class Calendar extends React.Component {
         )
     }
 
+    changeYear(year) {
+        var newBool = !this.state[year];
+
+        this.setState((state) => {
+            state[year] = newBool;
+            return state;
+        })
+    }
+
     year() {
         const years = [];
         const thisYear = new Date().getFullYear();
         const minYear = minDate.getFullYear();
         const diff = thisYear - minYear;
-        let year;
 
-        for (var i = diff; i >= 0; i--) {
-            year = minYear + i;
+        for (let i = diff; i >= 0; i--) {
+            let year = minYear + i;
             years.push(
-                <div key={year}>
-                    <h2>{year}</h2>
+                <div key={year} className="year">
+                    <div>
+                        <h2>{year}</h2>
+                        <button onClick={() => this.changeYear(year)} className="btn btn-secondary">{this.state[year] ? "Hide Past Weeks" : "Show Past Weeks"}</button>
+                    </div>
                     {this.weeks(year)}
                 </div>
-            )
+            );
         }
 
-        return <div className="year">{years}</div>;
+        return <div className="years">{years}</div>;
     }
 
     weekButtons() {

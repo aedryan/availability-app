@@ -22,11 +22,22 @@
 
 .calendar {
     margin-bottom: 20px;
+    & .year:not(:last-child) {
+        margin-bottom: 30px;
+    }
     & .well h2 {
         margin-top: 0;
     }
     .year h2 {
-        margin-bottom: 0;
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+        & + button {
+            margin-left: 10px;
+            font-size: 12px;
+            padding: 2px 10px;
+            background: rgb(225,225,225);
+        }
     }
 }
 
