@@ -8,8 +8,8 @@ export default class Week extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			year: this.props.year,
-			week: this.props.week,
+			year: Number(this.props.year),
+			week: Number(this.props.week),
 			weekData: null,
 			danger: false
 		}
