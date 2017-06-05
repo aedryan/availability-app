@@ -21,7 +21,7 @@
     passport.use(new GoogleStrategy({
         clientID: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        callbackURL: 'https://availability-aedryan.herokuapp.com/auth/google/callback',
+        callbackURL: 'http://availability-aedryan.herokuapp.com/auth/google/callback', // PROD: https://availability-aedryan.herokuapp.com/auth/google/callback
         passReqToCallback: true
     }, function(request, accessToken, refreshToken, profile, done){
         process.nextTick(() => {

@@ -9,7 +9,7 @@ export default class Home extends React.Component {
 	render() {
 		return (
 			<div id="home">
-				<Calendar />
+				<Calendar loggedIn={this.props.loggedIn} />
 			</div>
 		);
 	}

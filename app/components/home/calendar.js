@@ -63,24 +63,30 @@ export default class Calendar extends React.Component {
         return <div className="year">{years}</div>;
     }
 
-	render() {
+    weekButtons() {
         const week = Util.weekOfYear();
         const thisYear = new Date().getFullYear();
         const thisWeek = thisYear + "-" + week;
         const nextWeek = thisYear + "-" + Number(week + 1);
 
+        return (
+            <div className="header-weeks">
+                <a className="btn btn-primary" href={"week/" + thisWeek}>This Week</a>
+                <a className="btn btn-primary" href={"week/" + nextWeek}>Next Week</a>
+            </div>
+        )
+    }
+
+	render() {
+        
+
 		return (
 			<div className="calendar">
                 <div className="well well-lg">
                     <h2>When Can You Game?</h2>
-                    <p>Select a week to let us know when you're available</p>
-                    <div className="header-weeks">
-                        <a className="btn btn-primary" href={"week/" + thisWeek}>This Week</a>
-                        <a className="btn btn-primary" href={"week/" + nextWeek}>Next Week</a>
-                    </div>
+                    <p>{this.props.loggedIn ? "Select a week to let us know when you're available" : "Log In to edit you're availability"}</p>
+                    {this.props.loggedIn ? this.weekButtons() : <a className="btn btn-primary" href={"/auth/google"}>Log In</a>}
                 </div>
-
-                
                 {this.year()}
             </div>
 		);
