@@ -20,9 +20,19 @@ const Routes = (props) => (
                 <Route exact path='/home' render={() => (
                     <Home loggedIn={props.loggedIn} />
                 )} />
-                <Route path='/week' render={() => (
-                    <Week loggedIn={props.loggedIn} userID={props.userID} />
-                )} />
+                <Route path='/week/:week' render={(e) => {
+                    const date = e.location.pathname.slice(e.location.pathname.lastIndexOf('/') + 1).split("-");
+                    const year = date[0];
+                    const week = date[1];
+                    
+                    if (Number(year) >= 2017 && Number(year) <= new Date().getFullYear() && Number(week) >= 1 && Number(week) <= 52) {
+                        return (
+                            <Week week={week} year={year} loggedIn={props.loggedIn} userID={props.userID} />
+                        );
+                    } else {
+                        return <NotFound />
+                    }
+                }} />
                 <Route path='*' component={NotFound} />
             </Switch>
         </div>

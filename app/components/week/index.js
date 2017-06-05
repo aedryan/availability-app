@@ -6,11 +6,10 @@ const socket = IO();
 
 export default class Week extends React.Component {
 	constructor(props) {
-		const param = window.location.href.slice(window.location.href.lastIndexOf("/") + 1).split("-");
 		super(props);
 		this.state = {
-			year: Number(param[0]),
-			week: Number(param[1]),
+			year: this.props.year,
+			week: this.props.week,
 			weekData: null,
 			danger: false
 		}
