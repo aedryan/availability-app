@@ -33,7 +33,7 @@ export default class Calendar extends React.Component {
                 className += className.length > 0 ? (" " + freshClass) : freshClass;
             }
             
-            weeks.push(<a href={"week/" + year + "-" + i} key={"Week-" + i} className={className}>{name}</a>)
+            weeks.push(<a href={"/week/" + year + "-" + i} key={"Week-" + i} className={className}>{name}</a>)
         }
 
         return (
@@ -71,8 +71,8 @@ export default class Calendar extends React.Component {
 
         return (
             <div className="header-weeks">
-                <a className="btn btn-primary" href={"week/" + thisWeek}>This Week</a>
-                <a className="btn btn-primary" href={"week/" + nextWeek}>Next Week</a>
+                <a className="btn btn-primary" href={"/week/" + thisWeek}>This Week</a>
+                <a className="btn btn-primary" href={"/week/" + nextWeek}>Next Week</a>
             </div>
         )
     }
