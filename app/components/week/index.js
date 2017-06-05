@@ -24,6 +24,14 @@ export default class Week extends React.Component {
 				}
 			});
 		});
+
+		socket.on('receive doc', (data) => {
+			this.setState(() => {
+				return {
+					weekData: data
+				}
+			});
+		});
 	}
 
 	getWeekData() {

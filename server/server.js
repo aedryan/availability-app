@@ -50,6 +50,10 @@
 		socket.on('player event', (data) => {
 			socket.broadcast.emit('receive player', data);
 		});
+
+		socket.on('doc event', (data) => {
+			socket.broadcast.emit('receive doc', data);
+		});
 	});
 
 })();
