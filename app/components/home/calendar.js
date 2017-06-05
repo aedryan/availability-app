@@ -83,7 +83,7 @@ export default class Calendar extends React.Component {
 		return (
 			<div className="calendar">
                 <div className="well well-lg">
-                    <h2>When Can You Game?</h2>
+                    <h2>{this.props.loggedIn ? "When Can You Game?" : "Logging in with Google is easy!"}</h2>
                     <p>{this.props.loggedIn ? "Select a week to let us know when you're available" : "Log In to edit you're availability"}</p>
                     {this.props.loggedIn ? this.weekButtons() : <a className="btn btn-primary" href={"/auth/google"}>Log In</a>}
                 </div>
