@@ -162,11 +162,12 @@ export default class Week extends React.Component {
 	render() {
 		const title = this.getWeekName();
 		const h3Class = this.state.danger ? "alert-danger" : "alert-warning";
+		const h3 = this.props.loggedIn ? 'Select the days that work for you! Select again to toggle "maybe" or remove yourself.' : <span><a href="/auth/google" className="login-link">Log in</a> to mark your availability</span>
 		
 		return (
 			<div id="week">
                 <h2>{title}</h2>
-				<h3 className={this.props.loggedIn ? "" : ("alert " + h3Class)}>{this.props.loggedIn ? 'Select the days that work for you! Select again to toggle "maybe" or remove yourself.' : 'Log in to mark your availability'}</h3>
+				<h3 className={this.props.loggedIn ? "" : ("alert " + h3Class)}>{h3}</h3>
 				{this.days()}
 				<h6>Hover over an image to see their name.</h6>
 				{this.props.loggedIn || (this.state.weekData && this.state.weekData.doc) ? this.getForm() : ''}
