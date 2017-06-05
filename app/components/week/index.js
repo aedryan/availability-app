@@ -15,6 +15,8 @@ export default class Week extends React.Component {
 			danger: false
 		}
 		this.getWeekData();
+		this.changeURL = this.changeURL.bind(this);
+    	this.submitForm = this.submitForm.bind(this);
 		socket.on('receive player', (data) => {
 			this.setState(() => {
 				return {
@@ -35,7 +37,6 @@ export default class Week extends React.Component {
 	}
 
 	clickDay(e, name) {
-		
 		if (this.props.loggedIn) {
 			name = name.toLowerCase();
 			$.post('/db/update/' + this.state.week + '/player', { day: name }, (data) => {
@@ -53,6 +54,33 @@ export default class Week extends React.Component {
 				};
 			});
 		}
+	}
+
+	submitForm(e) {
+		const docURL = this.state.weekData.doc;
+
+		e.preventDefault();
+		$.post('/db/update/' + this.state.week + '/doc', { doc: docURL }, (data) => {
+			socket.emit('doc event', data);
+			this.setState(() => {
+				return {
+					weekData: data
+				};
+			});
+		});
+	}
+
+	changeURL(e) {
+		const value = e.target.value;
+
+		this.setState((state) => {
+			const weekData = state.weekData;
+			weekData.doc = value;
+
+			return {
+				weekData: weekData
+			};
+		});
 	}
 
 	days() {
@@ -100,6 +128,30 @@ export default class Week extends React.Component {
 		}
 	}
 
+	getForm() {
+		const docURL = this.state.weekData && this.state.weekData.doc ? this.state.weekData.doc : '';
+		let googleDoc;
+
+		if (this.props.loggedIn) {
+			googleDoc = <input onChange={this.changeURL} type="text" className="form-control" value={docURL} placeholder="Enter URL" id="google-doc" />;
+		} else {
+			googleDoc = <div><a target="_blank" href={docURL}>{docURL}</a></div>
+		}
+
+		return (
+			<form onSubmit={this.submitForm}>
+				<div className="form-group">
+					<label htmlFor="google-doc">
+						<span>Google Doc URL</span>
+						{this.props.loggedIn ? <button className="btn btn-primary" type="submit">Save</button> : ''}
+					</label>
+					{googleDoc}
+					{this.props.loggedIn ? <a className={"btn" + (!docURL ? " disabled" : "")} href={docURL} target="_blank">Open</a> : ''}
+				</div>
+			</form>
+		)
+	}
+
 	render() {
 		const title = this.getWeekName();
 		const h3Class = this.state.danger ? "alert-danger" : "alert-warning";
@@ -110,6 +162,7 @@ export default class Week extends React.Component {
 				<h3 className={this.props.loggedIn ? "" : ("alert " + h3Class)}>{this.props.loggedIn ? 'Select the days that work for you! Select again to toggle "maybe" or remove yourself.' : 'Log in to mark your availability'}</h3>
 				{this.days()}
 				<h6>Hover over an image to see their name.</h6>
+				{this.props.loggedIn || (this.state.weekData && this.state.weekData.doc) ? this.getForm() : ''}
 			</div>
 		);
 	}

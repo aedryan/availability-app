@@ -10,7 +10,8 @@
         wednesday: Array,
         thursday: Array,
         friday: Array,
-        saturday: Array
+        saturday: Array,
+        doc: String
     });
 
     module.exports = mongoose.model('Week', weekSchema, 'weeks');

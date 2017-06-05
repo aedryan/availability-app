@@ -108,6 +108,33 @@
                 res.end();
             }
         });
+
+        /**
+         * Adds google doc to week
+         */
+        app.post('/db/update/:week/doc', (req, res) => {
+            if (req.isAuthenticated()) {
+                Week.findOne({ "number": req.params.week }, (err, oldWeek) => {
+                    if (err || !oldWeek) {
+                        console.error('Error finding week.', req.params.week, err)
+                        res.status(503).end();
+                    } else {
+                        oldWeek.doc = req.body.doc
+
+                        oldWeek.save((err, newWeek) => {
+                            if (err) {
+                                console.error('Error creating new poll.', req.body, err)
+                                res.status(503).end();
+                            } else {
+                                res.status(200).json(newWeek.toJSON());
+                            }
+                        });
+                    }
+                });
+            } else {
+                res.end();
+            }
+        });
         
     };
 
