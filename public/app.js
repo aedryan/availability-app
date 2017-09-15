@@ -1,1 +1,1079 @@
-!function(){"use strict";var e="undefined"==typeof global?self:global;if("function"!=typeof e.require){var t={},r={},n={},a={}.hasOwnProperty,o=/^\.\.?(\/|$)/,l=function(e,t){for(var r,n=[],a=(o.test(t)?e+"/"+t:t).split("/"),l=0,u=a.length;l<u;l++)r=a[l],".."===r?n.pop():"."!==r&&""!==r&&n.push(r);return n.join("/")},u=function(e){return e.split("/").slice(0,-1).join("/")},i=function(t){return function(r){var n=l(u(t),r);return e.require(n,t)}},c=function(e,t){var n=y&&y.createHot(e),a={id:e,exports:{},hot:n};return r[e]=a,t(a.exports,i(e),a),a.exports},s=function(e){return n[e]?s(n[e]):e},f=function(e,t){return s(l(u(e),t))},d=function(e,n){null==n&&(n="/");var o=s(e);if(a.call(r,o))return r[o].exports;if(a.call(t,o))return c(o,t[o]);throw new Error("Cannot find module '"+e+"' from '"+n+"'")};d.alias=function(e,t){n[t]=e};var p=/\.[^.\/]+$/,m=/\/index(\.[^\/]+)?$/,h=function(e){if(p.test(e)){var t=e.replace(p,"");a.call(n,t)&&n[t].replace(p,"")!==t+"/index"||(n[t]=e)}if(m.test(e)){var r=e.replace(m,"");a.call(n,r)||(n[r]=e)}};d.register=d.define=function(e,n){if(e&&"object"==typeof e)for(var o in e)a.call(e,o)&&d.register(o,e[o]);else t[e]=n,delete r[e],h(e)},d.list=function(){var e=[];for(var r in t)a.call(t,r)&&e.push(r);return e};var y=e._hmr&&new e._hmr(f,d,t,r);d._cache=r,d.hmr=y&&y.wrap,d.brunch=!0,e.require=d}}(),function(){var e;"undefined"==typeof window?this:window;require.register("components/404/index.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function l(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(e,"__esModule",{value:!0});var u=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=t("react"),c=n(i),s=function(e){function t(){return a(this,t),o(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return l(t,e),u(t,[{key:"render",value:function(){return c["default"].createElement("div",null,"404 Not Found")}}]),t}(c["default"].Component);e["default"]=s}),require.register("components/header-nav/index.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function l(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(e,"__esModule",{value:!0});var u=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=t("react"),c=n(i),s=t("util"),f=n(s),d=function(e){function t(e){a(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return r.state={username:e.username},r}return l(t,e),u(t,[{key:"getLoginElem",value:function(){if(this.props.loggedIn){var e=f["default"].weekOfYear(),t=(new Date).getFullYear(),r=t+"-"+e,n=t+"-"+Number(e+1);return c["default"].createElement("div",{className:"dropdown"},c["default"].createElement("a",{className:"dropdown-toggle",type:"button",id:"dropdownMenu1","data-toggle":"dropdown","aria-haspopup":"true","aria-expanded":"true"},c["default"].createElement("span",null,this.state.username),c["default"].createElement("span",{className:"caret"})),c["default"].createElement("ul",{className:"dropdown-menu","aria-labelledby":"dropdownMenu1"},c["default"].createElement("li",null,c["default"].createElement("a",{href:"/home"},"Home")),c["default"].createElement("li",{role:"separator",className:"divider"}),c["default"].createElement("li",null,c["default"].createElement("a",{href:"/week/"+r},"This Week")),c["default"].createElement("li",null,c["default"].createElement("a",{href:"/week/"+n},"Next Week")),c["default"].createElement("li",{role:"separator",className:"divider"}),c["default"].createElement("li",null,c["default"].createElement("a",{href:"/auth/logout"},"Log Out"))))}return c["default"].createElement("a",{href:"/auth/google"},"Log in with Google")}},{key:"render",value:function(){return c["default"].createElement("div",{id:"header-nav"},c["default"].createElement("a",{href:"/home"},"When Can You Game?"),this.getLoginElem())}}]),t}(c["default"].Component);e["default"]=d}),require.register("components/home/calendar.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function l(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(e,"__esModule",{value:!0});var u=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=t("react"),c=n(i),s=t("util"),f=n(s),d=new Date(2017,0,1),p=function(e){function t(e){a(this,t);for(var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e)),n=d.getFullYear(),l=n-(new Date).getFullYear(),u={},i=0;i<=l;i++)u[n+i]=!1;return r.state=u,r}return l(t,e),u(t,[{key:"weeks",value:function r(e){for(var r=[],t=f["default"].weekOfYear(),n="fresh",a="",o="",l=1;l<=52;l++)a="",l===t?(o="This Week",a+="this-week"):o=l+1===t?"Last Week":l-1===t?"Next Week":"Week "+l,l>=t&&e===(new Date).getFullYear()&&(a+=a.length>0?" "+n:n),(this.state[e]||a.indexOf("fresh")>-1)&&r.push(c["default"].createElement("a",{href:"/week/"+e+"-"+l,key:"Week-"+l,className:a},o));return c["default"].createElement("div",{className:"weeks container-fluid"},r)}},{key:"changeYear",value:function(e){var t=!this.state[e];this.setState(function(r){return r[e]=t,r})}},{key:"year",value:function(){for(var e=this,t=[],r=(new Date).getFullYear(),n=d.getFullYear(),a=r-n,o=function(r){var a=n+r;t.push(c["default"].createElement("div",{key:a,className:"year"},c["default"].createElement("div",null,c["default"].createElement("h2",null,a),c["default"].createElement("button",{onClick:function(){return e.changeYear(a)},className:"btn btn-secondary"},e.state[a]?"Hide Past Weeks":"Show Past Weeks")),e.weeks(a)))},l=a;l>=0;l--)o(l);return c["default"].createElement("div",{className:"years"},t)}},{key:"weekButtons",value:function(){var e=f["default"].weekOfYear(),t=(new Date).getFullYear(),r=t+"-"+e,n=t+"-"+Number(e+1);return c["default"].createElement("div",{className:"header-weeks"},c["default"].createElement("a",{className:"btn btn-primary",href:"/week/"+r},"This Week"),c["default"].createElement("a",{className:"btn btn-primary",href:"/week/"+n},"Next Week"))}},{key:"render",value:function(){return c["default"].createElement("div",{className:"calendar"},c["default"].createElement("div",{className:"well well-lg"},c["default"].createElement("h2",null,this.props.loggedIn?"When Can You Game?":"Logging in with Google is easy!"),c["default"].createElement("p",null,this.props.loggedIn?"Select a week to let us know when you're available":"Log In to edit you're availability"),this.props.loggedIn?this.weekButtons():c["default"].createElement("a",{className:"btn btn-primary",href:"/auth/google"},"Log In")),this.year())}}]),t}(c["default"].Component);e["default"]=p}),require.register("components/home/index.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function l(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(e,"__esModule",{value:!0});var u=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=t("react"),c=n(i),s=t("./calendar"),f=n(s),d=function(e){function t(e){return a(this,t),o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e))}return l(t,e),u(t,[{key:"render",value:function(){return c["default"].createElement("div",{id:"home"},c["default"].createElement(f["default"],{loggedIn:this.props.loggedIn}))}}]),t}(c["default"].Component);e["default"]=d}),require.register("components/week/index.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function a(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function l(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(e,"__esModule",{value:!0});var u=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}(),i=t("react"),c=n(i),s=t("util"),f=n(s),d=t("socket.io-client"),p=n(d),m=(0,p["default"])(),h=function(e){function t(e){a(this,t);var r=o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return r.state={year:Number(r.props.year),week:Number(r.props.week),weekData:null,danger:!1},r.getWeekData(),r.changeURL=r.changeURL.bind(r),r.submitForm=r.submitForm.bind(r),m.on("receive player",function(e){r.setState(function(){return{weekData:e}})}),m.on("receive doc",function(e){r.setState(function(){return{weekData:e}})}),r}return l(t,e),u(t,[{key:"getWeekData",value:function(){var e=this;$.get("/db/week/"+this.state.week,function(t){e.setState(function(){return{weekData:t}})})}},{key:"clickDay",value:function(e,t){var r=this;this.props.loggedIn?(t=t.toLowerCase(),$.post("/db/update/"+this.state.week+"/player",{day:t},function(e){m.emit("player event",e),r.setState(function(){return{weekData:e}})})):this.setState(function(){return{danger:!0}})}},{key:"submitForm",value:function(e){var t=this,r=this.state.weekData.doc;e.preventDefault(),$.post("/db/update/"+this.state.week+"/doc",{doc:r},function(e){m.emit("doc event",e),t.setState(function(){return{weekData:e}})})}},{key:"changeURL",value:function(e){var t=e.target.value;this.setState(function(e){var r=e.weekData;return r.doc=t,{weekData:r}})}},{key:"days",value:function r(){var e=this,t=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],r=t.map(function(t){var r=[],n="day clearfix";return e.state.weekData&&(r=e.state.weekData[t.toLowerCase()].map(function(e){return c["default"].createElement(y,{player:e,key:e.id})})),n+=e.props.loggedIn?" clickable":"",c["default"].createElement("div",{className:n,key:t,onClick:function(r){return e.clickDay(r,t)}},c["default"].createElement("div",{className:"day-title"},t),c["default"].createElement("div",{className:"players"},r))});return c["default"].createElement("div",{className:"days"},r)}},{key:"getWeekName",value:function(){var e="Week "+this.state.week+" of "+this.state.year;if((new Date).getFullYear()===this.state.year){var t=this.state.week,r=f["default"].weekOfYear();return t===r?"This Week":t+1===r?"Last Week":t-1===r?"Next Week":e}return e}},{key:"getForm",value:function(){var e=this.state.weekData&&this.state.weekData.doc?this.state.weekData.doc:"",t=void 0;return t=this.props.loggedIn?c["default"].createElement("input",{onChange:this.changeURL,type:"text",className:"form-control",value:e,placeholder:"Enter URL",id:"google-doc"}):c["default"].createElement("div",null,c["default"].createElement("a",{target:"_blank",href:e},e)),c["default"].createElement("form",{onSubmit:this.submitForm},c["default"].createElement("div",{className:"form-group"},c["default"].createElement("label",{htmlFor:"google-doc"},c["default"].createElement("span",null,"Google Doc URL"),this.props.loggedIn?c["default"].createElement("button",{className:"btn btn-primary",type:"submit"},"Save"):""),t,this.props.loggedIn?c["default"].createElement("a",{className:"btn"+(e?"":" disabled"),href:e,target:"_blank"},"Open"):""))}},{key:"render",value:function(){var e=this.getWeekName(),t=this.state.danger?"alert-danger":"alert-warning",r=this.props.loggedIn?'Select the days that work for you! Select again to toggle "maybe" or remove yourself.':c["default"].createElement("span",null,c["default"].createElement("a",{href:"/auth/google",className:"login-link"},"Log in")," to mark your availability");return c["default"].createElement("div",{id:"week"},c["default"].createElement("h2",null,e),c["default"].createElement("h3",{className:this.props.loggedIn?"":"alert "+t},r),this.days(),c["default"].createElement("h6",null,"Hover over an image to see their name."),this.props.loggedIn||this.state.weekData&&this.state.weekData.doc?this.getForm():"")}}]),t}(c["default"].Component);e["default"]=h;var y=function(e){function t(e){return a(this,t),o(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e))}return l(t,e),u(t,[{key:"render",value:function(){var e=this.props.player.maybe?" maybe":"";return c["default"].createElement("div",{className:"player-container"+e,key:this.props.player.id},c["default"].createElement("img",{title:this.props.player.name,src:this.props.player.photo}))}}]),t}(c["default"].Component)}),require.register("index.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}var a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},o=t("react-dom"),l=n(o),u=t("react"),i=n(u),c=t("history/createBrowserHistory"),s=n(c),f=t("routes"),d=n(f),p=t("components/header-nav"),m=n(p),h=(0,s["default"])();document.addEventListener("DOMContentLoaded",function(){$.get("/db/user",function(e){var t="object"===("undefined"==typeof e?"undefined":a(e)),r=e?e.google.displayName:"",n=e?e.google.id:"";l["default"].render(i["default"].createElement("div",{id:"app"},i["default"].createElement(m["default"],{loggedIn:t,username:r}),i["default"].createElement(d["default"],{history:h,loggedIn:t,userID:n})),document.querySelector("#root"))})})}),require.register("routes.js",function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(e,"__esModule",{value:!0});var a=t("react"),o=n(a),l=t("react-router-dom"),u=t("components/home"),i=n(u),c=t("components/week"),s=n(c),f=t("components/404"),d=n(f),p=function(e){return o["default"].createElement(l.BrowserRouter,e,o["default"].createElement("div",{className:"main-content"},o["default"].createElement(l.Switch,null,o["default"].createElement(l.Route,{exact:!0,path:"/",render:function(){return o["default"].createElement(l.Redirect,{to:"/home"})}}),o["default"].createElement(l.Route,{exact:!0,path:"/home",render:function(){return o["default"].createElement(i["default"],{loggedIn:e.loggedIn})}}),o["default"].createElement(l.Route,{path:"/week/:week",render:function(t){var r=t.location.pathname.slice(t.location.pathname.lastIndexOf("/")+1).split("-"),n=r[0],a=r[1];return Number(n)>=2017&&Number(n)<=(new Date).getFullYear()&&Number(a)>=1&&Number(a)<=52?o["default"].createElement(s["default"],{week:a,year:n,loggedIn:e.loggedIn,userID:e.userID}):o["default"].createElement(d["default"],null)}}),o["default"].createElement(l.Route,{path:"*",component:d["default"]}))))};e["default"]=p}),require.register("util.js",function(e,t,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={weekOfYear:function(){var e=new Date,t=e.getFullYear(),r=new Date(t,0,0),n=e-r,a=864e5,o=Math.floor(n/a),l=Math.ceil(o/7);return l}};e["default"]=n}),require.alias("process/browser.js","process"),e=require("process"),require.register("___globals___",function(e,t,r){window.jQuery=t("jquery"),window.$=t("jquery"),window.bootstrap=t("bootstrap")})}(),require("___globals___");
+(function() {
+  'use strict';
+
+  var globals = typeof global === 'undefined' ? self : global;
+  if (typeof globals.require === 'function') return;
+
+  var modules = {};
+  var cache = {};
+  var aliases = {};
+  var has = {}.hasOwnProperty;
+
+  var expRe = /^\.\.?(\/|$)/;
+  var expand = function(root, name) {
+    var results = [], part;
+    var parts = (expRe.test(name) ? root + '/' + name : name).split('/');
+    for (var i = 0, length = parts.length; i < length; i++) {
+      part = parts[i];
+      if (part === '..') {
+        results.pop();
+      } else if (part !== '.' && part !== '') {
+        results.push(part);
+      }
+    }
+    return results.join('/');
+  };
+
+  var dirname = function(path) {
+    return path.split('/').slice(0, -1).join('/');
+  };
+
+  var localRequire = function(path) {
+    return function expanded(name) {
+      var absolute = expand(dirname(path), name);
+      return globals.require(absolute, path);
+    };
+  };
+
+  var initModule = function(name, definition) {
+    var hot = hmr && hmr.createHot(name);
+    var module = {id: name, exports: {}, hot: hot};
+    cache[name] = module;
+    definition(module.exports, localRequire(name), module);
+    return module.exports;
+  };
+
+  var expandAlias = function(name) {
+    return aliases[name] ? expandAlias(aliases[name]) : name;
+  };
+
+  var _resolve = function(name, dep) {
+    return expandAlias(expand(dirname(name), dep));
+  };
+
+  var require = function(name, loaderPath) {
+    if (loaderPath == null) loaderPath = '/';
+    var path = expandAlias(name);
+
+    if (has.call(cache, path)) return cache[path].exports;
+    if (has.call(modules, path)) return initModule(path, modules[path]);
+
+    throw new Error("Cannot find module '" + name + "' from '" + loaderPath + "'");
+  };
+
+  require.alias = function(from, to) {
+    aliases[to] = from;
+  };
+
+  var extRe = /\.[^.\/]+$/;
+  var indexRe = /\/index(\.[^\/]+)?$/;
+  var addExtensions = function(bundle) {
+    if (extRe.test(bundle)) {
+      var alias = bundle.replace(extRe, '');
+      if (!has.call(aliases, alias) || aliases[alias].replace(extRe, '') === alias + '/index') {
+        aliases[alias] = bundle;
+      }
+    }
+
+    if (indexRe.test(bundle)) {
+      var iAlias = bundle.replace(indexRe, '');
+      if (!has.call(aliases, iAlias)) {
+        aliases[iAlias] = bundle;
+      }
+    }
+  };
+
+  require.register = require.define = function(bundle, fn) {
+    if (bundle && typeof bundle === 'object') {
+      for (var key in bundle) {
+        if (has.call(bundle, key)) {
+          require.register(key, bundle[key]);
+        }
+      }
+    } else {
+      modules[bundle] = fn;
+      delete cache[bundle];
+      addExtensions(bundle);
+    }
+  };
+
+  require.list = function() {
+    var list = [];
+    for (var item in modules) {
+      if (has.call(modules, item)) {
+        list.push(item);
+      }
+    }
+    return list;
+  };
+
+  var hmr = globals._hmr && new globals._hmr(_resolve, require, modules, cache);
+  require._cache = cache;
+  require.hmr = hmr && hmr.wrap;
+  require.brunch = true;
+  globals.require = require;
+})();
+
+(function() {
+var global = typeof window === 'undefined' ? this : window;
+var process;
+var __makeRelativeRequire = function(require, mappings, pref) {
+  var none = {};
+  var tryReq = function(name, pref) {
+    var val;
+    try {
+      val = require(pref + '/node_modules/' + name);
+      return val;
+    } catch (e) {
+      if (e.toString().indexOf('Cannot find module') === -1) {
+        throw e;
+      }
+
+      if (pref.indexOf('node_modules') !== -1) {
+        var s = pref.split('/');
+        var i = s.lastIndexOf('node_modules');
+        var newPref = s.slice(0, i).join('/');
+        return tryReq(name, newPref);
+      }
+    }
+    return none;
+  };
+  return function(name) {
+    if (name in mappings) name = mappings[name];
+    if (!name) return;
+    if (name[0] !== '.' && pref) {
+      var val = tryReq(name, pref);
+      if (val !== none) return val;
+    }
+    return require(name);
+  }
+};
+require.register("components/404/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NotFound = function (_React$Component) {
+	_inherits(NotFound, _React$Component);
+
+	function NotFound() {
+		_classCallCheck(this, NotFound);
+
+		return _possibleConstructorReturn(this, (NotFound.__proto__ || Object.getPrototypeOf(NotFound)).apply(this, arguments));
+	}
+
+	_createClass(NotFound, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				'404 Not Found'
+			);
+		}
+	}]);
+
+	return NotFound;
+}(_react2.default.Component);
+
+exports.default = NotFound;
+
+});
+
+require.register("components/header-nav/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _util = require('util');
+
+var _util2 = _interopRequireDefault(_util);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HeaderNav = function (_React$Component) {
+    _inherits(HeaderNav, _React$Component);
+
+    function HeaderNav(props) {
+        _classCallCheck(this, HeaderNav);
+
+        var _this = _possibleConstructorReturn(this, (HeaderNav.__proto__ || Object.getPrototypeOf(HeaderNav)).call(this, props));
+
+        _this.state = {
+            username: props.username
+        };
+        return _this;
+    }
+
+    _createClass(HeaderNav, [{
+        key: 'getLoginElem',
+        value: function getLoginElem() {
+            if (this.props.loggedIn) {
+                var week = _util2.default.weekOfYear();
+                var thisYear = new Date().getFullYear();
+                var thisWeek = thisYear + "-" + week;
+                var nextWeek = thisYear + "-" + Number(week + 1);
+
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'dropdown' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'dropdown-toggle', type: 'button', id: 'dropdownMenu1', 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'true' },
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            this.state.username
+                        ),
+                        _react2.default.createElement('span', { className: 'caret' })
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        { className: 'dropdown-menu', 'aria-labelledby': 'dropdownMenu1' },
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '/home' },
+                                'Home'
+                            )
+                        ),
+                        _react2.default.createElement('li', { role: 'separator', className: 'divider' }),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: "/week/" + thisWeek },
+                                'This Week'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: "/week/" + nextWeek },
+                                'Next Week'
+                            )
+                        ),
+                        _react2.default.createElement('li', { role: 'separator', className: 'divider' }),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '/auth/logout' },
+                                'Log Out'
+                            )
+                        )
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    'a',
+                    { href: '/auth/google' },
+                    'Log in with Google'
+                );
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'header-nav' },
+                _react2.default.createElement(
+                    'a',
+                    { href: '/home' },
+                    'When Can You Game?'
+                ),
+                this.getLoginElem()
+            );
+        }
+    }]);
+
+    return HeaderNav;
+}(_react2.default.Component);
+
+exports.default = HeaderNav;
+
+});
+
+require.register("components/home/calendar.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _util = require('util');
+
+var _util2 = _interopRequireDefault(_util);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var minDate = new Date(2017, 0, 1);
+
+var Calendar = function (_React$Component) {
+    _inherits(Calendar, _React$Component);
+
+    function Calendar(props) {
+        _classCallCheck(this, Calendar);
+
+        var _this = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
+
+        var thisYear = minDate.getFullYear();
+        var diff = thisYear - new Date().getFullYear();
+        var state = {};
+
+        for (var i = 0; i <= diff; i++) {
+            state[thisYear + i] = false;
+        }
+
+        _this.state = state;
+        return _this;
+    }
+
+    _createClass(Calendar, [{
+        key: 'weeks',
+        value: function weeks(year) {
+            var weeks = [];
+            var week = _util2.default.weekOfYear();
+            var freshClass = "fresh";
+            var className = "";
+            var name = "";
+
+            for (var i = 1; i <= 52; i++) {
+                className = "";
+
+                if (i === week) {
+                    name = "This Week";
+                    className += "this-week";
+                } else if (i + 1 === week) {
+                    name = "Last Week";
+                } else if (i - 1 === week) {
+                    name = "Next Week";
+                } else {
+                    name = "Week " + i;
+                }
+
+                if (i >= week && year === new Date().getFullYear()) {
+                    className += className.length > 0 ? " " + freshClass : freshClass;
+                }
+
+                if (this.state[year] || className.indexOf('fresh') > -1) {
+                    weeks.push(_react2.default.createElement(
+                        'a',
+                        { href: "/week/" + year + "-" + i, key: "Week-" + i, className: className },
+                        name
+                    ));
+                }
+            }
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'weeks container-fluid' },
+                weeks
+            );
+        }
+    }, {
+        key: 'changeYear',
+        value: function changeYear(year) {
+            var newBool = !this.state[year];
+
+            this.setState(function (state) {
+                state[year] = newBool;
+                return state;
+            });
+        }
+    }, {
+        key: 'year',
+        value: function year() {
+            var _this2 = this;
+
+            var years = [];
+            var thisYear = new Date().getFullYear();
+            var minYear = minDate.getFullYear();
+            var diff = thisYear - minYear;
+
+            var _loop = function _loop(i) {
+                var year = minYear + i;
+                years.push(_react2.default.createElement(
+                    'div',
+                    { key: year, className: 'year' },
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'h2',
+                            null,
+                            year
+                        ),
+                        _react2.default.createElement(
+                            'button',
+                            { onClick: function onClick() {
+                                    return _this2.changeYear(year);
+                                }, className: 'btn btn-secondary' },
+                            _this2.state[year] ? "Hide Past Weeks" : "Show Past Weeks"
+                        )
+                    ),
+                    _this2.weeks(year)
+                ));
+            };
+
+            for (var i = diff; i >= 0; i--) {
+                _loop(i);
+            }
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'years' },
+                years
+            );
+        }
+    }, {
+        key: 'weekButtons',
+        value: function weekButtons() {
+            var week = _util2.default.weekOfYear();
+            var thisYear = new Date().getFullYear();
+            var thisWeek = thisYear + "-" + week;
+            var nextWeek = thisYear + "-" + Number(week + 1);
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'header-weeks' },
+                _react2.default.createElement(
+                    'a',
+                    { className: 'btn btn-primary', href: "/week/" + thisWeek },
+                    'This Week'
+                ),
+                _react2.default.createElement(
+                    'a',
+                    { className: 'btn btn-primary', href: "/week/" + nextWeek },
+                    'Next Week'
+                )
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'calendar' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'well well-lg' },
+                    _react2.default.createElement(
+                        'h2',
+                        null,
+                        this.props.loggedIn ? "When Can You Game?" : "Logging in with Google is easy!"
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        this.props.loggedIn ? "Select a week to let us know when you're available" : "Log In to edit you're availability"
+                    ),
+                    this.props.loggedIn ? this.weekButtons() : _react2.default.createElement(
+                        'a',
+                        { className: 'btn btn-primary', href: "/auth/google" },
+                        'Log In'
+                    )
+                ),
+                this.year()
+            );
+        }
+    }]);
+
+    return Calendar;
+}(_react2.default.Component);
+
+exports.default = Calendar;
+
+});
+
+require.register("components/home/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _calendar = require('./calendar');
+
+var _calendar2 = _interopRequireDefault(_calendar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_React$Component) {
+	_inherits(Home, _React$Component);
+
+	function Home(props) {
+		_classCallCheck(this, Home);
+
+		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+	}
+
+	_createClass(Home, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ id: 'home' },
+				_react2.default.createElement(_calendar2.default, { loggedIn: this.props.loggedIn })
+			);
+		}
+	}]);
+
+	return Home;
+}(_react2.default.Component);
+
+exports.default = Home;
+
+});
+
+require.register("components/week/index.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _util = require('util');
+
+var _util2 = _interopRequireDefault(_util);
+
+var _socket = require('socket.io-client');
+
+var _socket2 = _interopRequireDefault(_socket);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var socket = (0, _socket2.default)();
+
+var Week = function (_React$Component) {
+	_inherits(Week, _React$Component);
+
+	function Week(props) {
+		_classCallCheck(this, Week);
+
+		var _this = _possibleConstructorReturn(this, (Week.__proto__ || Object.getPrototypeOf(Week)).call(this, props));
+
+		_this.state = {
+			year: Number(_this.props.year),
+			week: Number(_this.props.week),
+			weekData: null,
+			danger: false
+		};
+		_this.getWeekData();
+		_this.changeURL = _this.changeURL.bind(_this);
+		_this.submitForm = _this.submitForm.bind(_this);
+		socket.on('receive player', function (data) {
+			_this.setState(function () {
+				return {
+					weekData: data
+				};
+			});
+		});
+
+		socket.on('receive doc', function (data) {
+			_this.setState(function () {
+				return {
+					weekData: data
+				};
+			});
+		});
+		return _this;
+	}
+
+	_createClass(Week, [{
+		key: 'getWeekData',
+		value: function getWeekData() {
+			var _this2 = this;
+
+			$.get('/db/week/' + this.state.week, function (data) {
+				_this2.setState(function () {
+					return {
+						weekData: data
+					};
+				});
+			});
+		}
+	}, {
+		key: 'clickDay',
+		value: function clickDay(e, name) {
+			var _this3 = this;
+
+			if (this.props.loggedIn) {
+				name = name.toLowerCase();
+				$.post('/db/update/' + this.state.week + '/player', { day: name }, function (data) {
+					socket.emit('player event', data);
+					_this3.setState(function () {
+						return {
+							weekData: data
+						};
+					});
+				});
+			} else {
+				this.setState(function () {
+					return {
+						danger: true
+					};
+				});
+			}
+		}
+	}, {
+		key: 'submitForm',
+		value: function submitForm(e) {
+			var _this4 = this;
+
+			var docURL = this.state.weekData.doc;
+
+			e.preventDefault();
+			$.post('/db/update/' + this.state.week + '/doc', { doc: docURL }, function (data) {
+				socket.emit('doc event', data);
+				_this4.setState(function () {
+					return {
+						weekData: data
+					};
+				});
+			});
+		}
+	}, {
+		key: 'changeURL',
+		value: function changeURL(e) {
+			var value = e.target.value;
+
+			this.setState(function (state) {
+				var weekData = state.weekData;
+				weekData.doc = value;
+
+				return {
+					weekData: weekData
+				};
+			});
+		}
+	}, {
+		key: 'days',
+		value: function days() {
+			var _this5 = this;
+
+			var names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+			var days = names.map(function (name) {
+				var players = [];
+				var className = "day clearfix";
+				if (_this5.state.weekData) {
+					players = _this5.state.weekData[name.toLowerCase()].map(function (player) {
+						return _react2.default.createElement(Player, { player: player, key: player.id });
+					});
+				}
+				className += _this5.props.loggedIn ? " clickable" : "";
+				return _react2.default.createElement(
+					'div',
+					{ className: className, key: name, onClick: function onClick(e) {
+							return _this5.clickDay(e, name);
+						} },
+					_react2.default.createElement(
+						'div',
+						{ className: 'day-title' },
+						name
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'players' },
+						players
+					)
+				);
+			});
+
+			return _react2.default.createElement(
+				'div',
+				{ className: 'days' },
+				days
+			);
+		}
+	}, {
+		key: 'getWeekName',
+		value: function getWeekName() {
+			var standardStr = "Week " + this.state.week + " of " + this.state.year;
+
+			if (new Date().getFullYear() === this.state.year) {
+				var week = this.state.week;
+				var weekOfYear = _util2.default.weekOfYear();
+
+				if (week === weekOfYear) {
+					return "This Week";
+				} else if (week + 1 === weekOfYear) {
+					return "Last Week";
+				} else if (week - 1 === weekOfYear) {
+					return "Next Week";
+				} else {
+					return standardStr;
+				}
+			} else {
+				return standardStr;
+			}
+		}
+	}, {
+		key: 'getForm',
+		value: function getForm() {
+			var docURL = this.state.weekData && this.state.weekData.doc ? this.state.weekData.doc : '';
+			var googleDoc = void 0;
+
+			if (this.props.loggedIn) {
+				googleDoc = _react2.default.createElement('input', { onChange: this.changeURL, type: 'text', className: 'form-control', value: docURL, placeholder: 'Enter URL', id: 'google-doc' });
+			} else {
+				googleDoc = _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'a',
+						{ target: '_blank', href: docURL },
+						docURL
+					)
+				);
+			}
+
+			return _react2.default.createElement(
+				'form',
+				{ onSubmit: this.submitForm },
+				_react2.default.createElement(
+					'div',
+					{ className: 'form-group' },
+					_react2.default.createElement(
+						'label',
+						{ htmlFor: 'google-doc' },
+						_react2.default.createElement(
+							'span',
+							null,
+							'Google Doc URL'
+						),
+						this.props.loggedIn ? _react2.default.createElement(
+							'button',
+							{ className: 'btn btn-primary', type: 'submit' },
+							'Save'
+						) : ''
+					),
+					googleDoc,
+					this.props.loggedIn ? _react2.default.createElement(
+						'a',
+						{ className: "btn" + (!docURL ? " disabled" : ""), href: docURL, target: '_blank' },
+						'Open'
+					) : ''
+				)
+			);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var thisYear = new Date().getFullYear();
+			var title = this.getWeekName();
+			var h3Class = this.state.danger ? "alert-danger" : "alert-warning";
+			var h3 = this.props.loggedIn ? 'Select the days that work for you! Select again to toggle "maybe" or remove yourself.' : _react2.default.createElement(
+				'span',
+				null,
+				_react2.default.createElement(
+					'a',
+					{ href: '/auth/google', className: 'login-link' },
+					'Log in'
+				),
+				' to mark your availability'
+			);
+			var prevWeekIsThisYear = this.state.week > 1;
+			var nextWeekIsThisYear = this.state.week < 52;
+			var prevWeek = (prevWeekIsThisYear ? thisYear : thisYear - 1) + "-" + (prevWeekIsThisYear ? this.state.week - 1 : 52);
+			var nextWeek = (nextWeekIsThisYear ? thisYear : thisYear + 1) + "-" + (nextWeekIsThisYear ? this.state.week + 1 : 1);
+			var prevWeekLabel = prevWeek.replace("-", ", Week ");
+			var nextWeekLabel = nextWeek.replace("-", ", Week ");
+
+			return _react2.default.createElement(
+				'div',
+				{ id: 'week' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'week-controls' },
+					this.state.year >= 2017 && prevWeekIsThisYear ? _react2.default.createElement(
+						'a',
+						{ href: "/week/" + prevWeek },
+						_react2.default.createElement('i', { className: 'fa fa-chevron-left', 'aria-hidden': 'true' }),
+						' ',
+						prevWeekLabel
+					) : "",
+					this.state.year <= thisYear && nextWeekIsThisYear ? _react2.default.createElement(
+						'a',
+						{ href: "/week/" + nextWeek },
+						nextWeekLabel,
+						' ',
+						_react2.default.createElement('i', { className: 'fa fa-chevron-right', 'aria-hidden': 'true' })
+					) : ""
+				),
+				_react2.default.createElement(
+					'h2',
+					null,
+					title
+				),
+				_react2.default.createElement(
+					'h3',
+					{ className: this.props.loggedIn ? "" : "alert " + h3Class },
+					h3
+				),
+				this.days(),
+				_react2.default.createElement(
+					'h6',
+					null,
+					'Hover over an image to see their name.'
+				),
+				this.props.loggedIn || this.state.weekData && this.state.weekData.doc ? this.getForm() : ''
+			);
+		}
+	}]);
+
+	return Week;
+}(_react2.default.Component);
+
+exports.default = Week;
+
+var Player = function (_React$Component2) {
+	_inherits(Player, _React$Component2);
+
+	function Player(props) {
+		_classCallCheck(this, Player);
+
+		return _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+	}
+
+	_createClass(Player, [{
+		key: 'render',
+		value: function render() {
+			var maybe = this.props.player.maybe ? " maybe" : "";
+
+			return _react2.default.createElement(
+				'div',
+				{ className: "player-container" + maybe, key: this.props.player.id },
+				_react2.default.createElement('img', { title: this.props.player.name, src: this.props.player.photo })
+			);
+		}
+	}]);
+
+	return Player;
+}(_react2.default.Component);
+
+});
+
+require.register("index.js", function(exports, require, module) {
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _createBrowserHistory = require('history/createBrowserHistory');
+
+var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
+
+var _routes = require('routes');
+
+var _routes2 = _interopRequireDefault(_routes);
+
+var _headerNav = require('components/header-nav');
+
+var _headerNav2 = _interopRequireDefault(_headerNav);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var history = (0, _createBrowserHistory2.default)();
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  $.get('/db/user', function (data) {
+    var loggedIn = (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object";
+    var username = data ? data.google.displayName : '';
+    var userID = data ? data.google.id : '';
+
+    _reactDom2.default.render(_react2.default.createElement(
+      'div',
+      { id: 'app' },
+      _react2.default.createElement(_headerNav2.default, { loggedIn: loggedIn, username: username }),
+      _react2.default.createElement(_routes2.default, { history: history, loggedIn: loggedIn, userID: userID })
+    ), document.querySelector('#root'));
+  });
+});
+
+});
+
+require.register("routes.js", function(exports, require, module) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _home = require('components/home');
+
+var _home2 = _interopRequireDefault(_home);
+
+var _week = require('components/week');
+
+var _week2 = _interopRequireDefault(_week);
+
+var _ = require('components/404');
+
+var _2 = _interopRequireDefault(_);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Routes = function Routes(props) {
+    return _react2.default.createElement(
+        _reactRouterDom.BrowserRouter,
+        props,
+        _react2.default.createElement(
+            'div',
+            { className: 'main-content' },
+            _react2.default.createElement(
+                _reactRouterDom.Switch,
+                null,
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
+                        return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/home' });
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home', render: function render() {
+                        return _react2.default.createElement(_home2.default, { loggedIn: props.loggedIn });
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: '/week/:week', render: function render(e) {
+                        var date = e.location.pathname.slice(e.location.pathname.lastIndexOf('/') + 1).split("-");
+                        var year = date[0];
+                        var week = date[1];
+
+                        if (Number(year) >= 2017 && Number(year) <= new Date().getFullYear() && Number(week) >= 1 && Number(week) <= 52) {
+                            return _react2.default.createElement(_week2.default, { week: week, year: year, loggedIn: props.loggedIn, userID: props.userID });
+                        } else {
+                            return _react2.default.createElement(_2.default, null);
+                        }
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: '*', component: _2.default })
+            )
+        )
+    );
+};
+
+exports.default = Routes;
+
+});
+
+require.register("util.js", function(exports, require, module) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Util = {
+
+    weekOfYear: function weekOfYear() {
+        var now = new Date();
+        var thisYear = now.getFullYear();
+        var start = new Date(thisYear, 0, 0);
+        var diff = now - start;
+        var oneDay = 1000 * 60 * 60 * 24;
+        var day = Math.floor(diff / oneDay);
+        var week = Math.ceil(day / 7);
+        return week;
+    }
+
+};
+
+exports.default = Util;
+
+});
+
+require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
+  
+
+// Auto-loaded modules from config.npm.globals.
+window.jQuery = require("jquery");
+window["$"] = require("jquery");
+window.bootstrap = require("bootstrap");
+
+
+});})();require('___globals___');
+
+
+//# sourceMappingURL=app.js.map

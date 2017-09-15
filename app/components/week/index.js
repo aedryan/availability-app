@@ -160,12 +160,23 @@ export default class Week extends React.Component {
 	}
 
 	render() {
+		const thisYear = new Date().getFullYear();
 		const title = this.getWeekName();
 		const h3Class = this.state.danger ? "alert-danger" : "alert-warning";
 		const h3 = this.props.loggedIn ? 'Select the days that work for you! Select again to toggle "maybe" or remove yourself.' : <span><a href="/auth/google" className="login-link">Log in</a> to mark your availability</span>
+		const prevWeekIsThisYear = this.state.week > 1;
+		const nextWeekIsThisYear = this.state.week < 52;
+		const prevWeek = (prevWeekIsThisYear ? thisYear : thisYear - 1) + "-" + (prevWeekIsThisYear ? this.state.week - 1 : 52);
+		const nextWeek = (nextWeekIsThisYear ? thisYear : thisYear + 1) + "-" + (nextWeekIsThisYear ? this.state.week + 1 : 1);
+		const prevWeekLabel = prevWeek.replace("-", ", Week ");
+		const nextWeekLabel = nextWeek.replace("-", ", Week ");
 		
 		return (
 			<div id="week">
+				<div className="week-controls">
+					{this.state.year >= 2017 && prevWeekIsThisYear ? <a href={"/week/" + prevWeek}><i className="fa fa-chevron-left" aria-hidden="true"></i> {prevWeekLabel}</a> : ""}
+					{this.state.year <= thisYear && nextWeekIsThisYear ? <a href={"/week/" + nextWeek}>{nextWeekLabel} <i className="fa fa-chevron-right" aria-hidden="true"></i></a> : ""}
+				</div>
                 <h2>{title}</h2>
 				<h3 className={this.props.loggedIn ? "" : ("alert " + h3Class)}>{h3}</h3>
 				{this.days()}
